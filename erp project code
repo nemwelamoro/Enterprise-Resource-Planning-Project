@@ -441,3 +441,42 @@ print("Recall:", recall)
 print("F1 Score:", f1_score)
 print("Support:", support)
 print("ROC AUC Score:", roc_auc)
+
+
+#User Knowledge Satisfaction 
+# Create and fit the Logistic Regression model
+model = LogisticRegression()
+model.fit(X_train[['User Knowledge Satisfaction']], y_train)
+# Make predictions
+y_pred = model.predict(X_test[['User Knowledge Satisfaction']])
+
+# Evaluate the model
+accuracy = accuracy_score(y_test, y_pred)
+report = classification_report(y_test, y_pred,zero_division=1)
+
+print("Accuracy:", accuracy)
+print("Classification Report:\n", report)
+
+
+#User Knowledge Satisfaction 
+from sklearn.metrics import confusion_matrix, precision_recall_fscore_support, roc_auc_score
+
+# Make predictions with the best model
+y_pred =model.predict(X_test[['User Knowledge Satisfaction']])
+
+# Compute the confusion matrix
+conf_matrix = confusion_matrix(y_test, y_pred)
+
+# Compute precision, recall, F1-score, and support for each class
+precision, recall, f1_score, support = precision_recall_fscore_support(y_test, y_pred,zero_division=1)
+
+# Compute the ROC AUC score (only for binary classification)
+roc_auc = roc_auc_score(y_test,model.predict_proba(X_test[['User Knowledge Satisfaction']])[:,1])
+
+# Print the metrics
+print("Confusion Matrix:\n", conf_matrix)
+print("Precision:", precision)
+print("Recall:", recall)
+print("F1 Score:", f1_score)
+print("Support:", support)
+print("ROC AUC Score:", roc_auc)
