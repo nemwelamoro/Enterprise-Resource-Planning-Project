@@ -10,3 +10,9 @@ from sklearn.metrics import mean_squared_error, r2_score
 # Load the dataset
 df = pd.read_csv("C:/Users/FBI/Desktop/Tarus project/erp dataset.csv")
 df.head()
+
+# Check the structure of the dataset
+print(df.info())
+
+# Summary statistics
+print(df.describe())
