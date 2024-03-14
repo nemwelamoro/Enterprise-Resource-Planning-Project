@@ -527,3 +527,48 @@ plt.grid(axis='x', linestyle='--', alpha=0.6)
 
 # Display the plot
 plt.show()
+
+
+#import necessary libraries
+from sklearn.model_selection import GridSearchCV
+
+# Define hyperparameters to tune
+param_grid = {
+    'C': [0.001, 0.01, 0.1, 1, 10, 100],  # Regularization parameter
+    'penalty': ['l1', 'l2'],  # Regularization type
+    'solver': ['liblinear']  # Suitable for small datasets
+}
+
+# Create and fit the GridSearchCV model
+grid_search = GridSearchCV(LogisticRegression(), param_grid, cv=5)
+grid_search.fit(X_train, y_train)
+
+# Get the best parameters
+best_params = grid_search.best_params_
+best_model = grid_search.best_estimator_
+
+# Re-fit the best model
+best_model.fit(X_train, y_train)
+
+
+from sklearn.metrics import confusion_matrix, precision_recall_fscore_support, roc_auc_score
+
+# Make predictions with the best model
+y_pred =best_model.predict(X_test)
+
+# Compute the confusion matrix
+conf_matrix = confusion_matrix(y_test, y_pred)
+
+# Compute precision, recall, F1-score, and support for each class
+precision, recall, f1_score, support = precision_recall_fscore_support(y_test, y_pred,zero_division=1)
+
+# Compute the ROC AUC score (only for binary classification)
+roc_auc = roc_auc_score(y_test,best_model.predict_proba(X_test)[:,1])
+
+# Print the metrics
+print("Confusion Matrix:\n", conf_matrix)
+print("Precision:", precision)
+print("Recall:", recall)
+print("F1 Score:", f1_score)
+print("Support:", support)
+print("ROC AUC Score:", roc_auc)
