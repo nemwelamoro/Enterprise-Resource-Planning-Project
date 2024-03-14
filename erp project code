@@ -572,3 +572,35 @@ print("Recall:", recall)
 print("F1 Score:", f1_score)
 print("Support:", support)
 print("ROC AUC Score:", roc_auc)
+
+
+# Get the feature coefficients
+feature_importance = best_model.coef_[0]
+
+# Pair feature names with their coefficients
+feature_names = X_train.columns
+feature_coefficients = list(zip(feature_names, feature_importance))
+
+# Sort the features by coefficient magnitude
+feature_coefficients = sorted(feature_coefficients, key=lambda x: abs(x[1]), reverse=True)
+
+# Print the feature coefficients
+print("Feature Coefficients:")
+for feature, coefficient in feature_coefficients:
+    print(f"{feature}: {coefficient}")
+
+
+
+import matplotlib.pyplot as plt
+# Extract feature names and coefficients for plotting
+sorted_feature_names, sorted_coefficients = zip(*feature_coefficients)
+
+# Create a bar plot
+plt.figure(figsize=(12, 6))
+plt.barh(sorted_feature_names, sorted_coefficients)
+plt.xlabel('Feature Coefficients')
+plt.title('Feature Coefficients in Logistic Regression Model')
+plt.grid(axis='x', linestyle='--', alpha=0.6)
+
+# Display the plot
+plt.show()
