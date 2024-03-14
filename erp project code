@@ -480,3 +480,50 @@ print("Recall:", recall)
 print("F1 Score:", f1_score)
 print("Support:", support)
 print("ROC AUC Score:", roc_auc)
+
+
+# Create and fit the Logistic Regression model
+model = LogisticRegression()
+model.fit(X_train, y_train)
+
+# Get the coefficients (log odds) for the independent variables
+log_odds = model.coef_[0]
+
+# Get the feature names (independent variable names)
+feature_names = X_train.columns
+
+# Pair feature names with their corresponding log odds
+feature_log_odds = list(zip(feature_names, log_odds))
+
+# Print the feature log odds
+for feature, log_odds_value in feature_log_odds:
+    print(f"{feature}: {log_odds_value}")
+
+# Make predictions
+y_pred = model.predict(X_test)
+
+# Evaluate the model
+accuracy = accuracy_score(y_test, y_pred)
+report = classification_report(y_test, y_pred)
+
+print("Accuracy:", accuracy)
+print("Classification Report:\n", report)
+
+
+#visualization of feature importance
+import matplotlib.pyplot as plt
+# Sort the features by log odds magnitude
+feature_log_odds = sorted(feature_log_odds, key=lambda x: abs(x[1]), reverse=True)
+
+# Extract feature names and log odds for plotting
+sorted_feature_names, sorted_log_odds = zip(*feature_log_odds)
+
+# Create a bar plot
+plt.figure(figsize=(12, 6))
+plt.barh(sorted_feature_names, sorted_log_odds)
+plt.xlabel('Feature coefficients')
+plt.title('Features in Logistic Regression Model')
+plt.grid(axis='x', linestyle='--', alpha=0.6)
+
+# Display the plot
+plt.show()
