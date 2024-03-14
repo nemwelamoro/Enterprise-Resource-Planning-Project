@@ -279,3 +279,23 @@ plt.title('User Knowledge Satisfaction Distribution')
 plt.xlabel('Score')
 plt.ylabel('Frequency')
 plt.show()
+
+#Create a correlation heatmap for a subset of our dataset
+# Import necessary libraries
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Define the subset of variables
+subset_variables = ['System Navigation Satisfaction', 'System Presentation Satisfaction', 'Security Satisfaction', 'User Knowledge Satisfaction', 'Academic Service Delivery ']
+
+# Create a subset DataFrame with only the selected variables
+subset_df = df[subset_variables]
+
+# Calculate the correlation matrix for the subset
+correlation_matrix = subset_df.corr()
+
+# Create the correlation heatmap
+plt.figure(figsize=(10, 8))  # You can adjust the figure size as needed
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', linewidths=0.5)
+plt.title('Correlation Heatmap')
+plt.show()
