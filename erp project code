@@ -234,3 +234,48 @@ total = len(df['Academic Service Delivery '])
 for level, count in frequency_table.items():
     percentage = (count / total) * 100
     print(f'{level}: {count} ({percentage:.2f}%)') 
+
+
+# Visualization of academic service delivery scores
+plt.figure(figsize=(10, 6))
+sns.histplot(df['Academic Service Delivery '], kde=True)
+plt.title('Academic Service Delivery Scores Distribution')
+plt.xlabel('Score')
+plt.ylabel('Frequency')
+plt.show()
+
+
+# Visualization of System Navigation Satisfaction
+plt.figure(figsize=(10, 6))
+sns.histplot(df['System Navigation Satisfaction'], kde=True)
+plt.title('System Navigation Satisfaction Distribution')
+plt.xlabel('Score')
+plt.ylabel('Frequency')
+plt.show()
+
+
+# Visualization of System Navigation Satisfaction
+plt.figure(figsize=(10, 6))
+sns.histplot(df['System Presentation Satisfaction'], kde=True)
+plt.title('System Presentation Distribution')
+plt.xlabel('Score')
+plt.ylabel('Frequency')
+plt.show()
+
+
+# Visualization of System Security Satisfaction
+plt.figure(figsize=(10, 6))
+sns.histplot(df['Security Satisfaction'], kde=True)
+plt.title('System Security Satisfaction Distribution')
+plt.xlabel('Score')
+plt.ylabel('Frequency')
+plt.show()
+
+
+# Visualization of User Knowledge Satisfaction
+plt.figure(figsize=(10, 6))
+sns.histplot(df['User Knowledge Satisfaction'], kde=True)
+plt.title('User Knowledge Satisfaction Distribution')
+plt.xlabel('Score')
+plt.ylabel('Frequency')
+plt.show()
