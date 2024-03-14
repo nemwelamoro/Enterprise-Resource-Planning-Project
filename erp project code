@@ -22,3 +22,215 @@ print(df.isnull().sum())
 
 #drop missing values
 df = df.dropna(subset=['Work Experience'])
+
+
+#Frequency distributions tables of different variables in the dataset
+from collections import Counter
+
+
+# Create a frequency distribution table for Level of Education
+frequency_table = Counter(df['Level of Education'])
+
+total = len(df['Level of Education'])
+
+# Print the frequency distribution table with percentages
+for level, count in frequency_table.items():
+    percentage = (count / total) * 100
+    print(f'{level}: {count} ({percentage:.2f}%)')
+
+
+# Create a frequency distribution table Work Experience
+frequency_table = Counter(df['Work Experience'])
+
+total = len(df['Work Experience'])
+
+# Print the frequency distribution table with percentages
+for level, count in frequency_table.items():
+    percentage = (count / total) * 100
+    print(f'{level}: {count} ({percentage:.2f}%)')
+
+
+# Create a frequency distribution table for System Navigation Statement 1 
+frequency_table = Counter(df['System Navigation Statement 1'])
+
+total = len(df['System Navigation Statement 1'])
+
+# Print the frequency distribution table with percentages
+for level, count in frequency_table.items():
+    percentage = (count / total) * 100
+    print(f'{level}: {count} ({percentage:.2f}%)')
+
+
+# Create a frequency distribution table for System Navigation Statement 2
+frequency_table = Counter(df['System Navigation Statement 2'])
+
+total = len(df['System Navigation Statement 2'])
+
+# Print the frequency distribution table with percentages
+for level, count in frequency_table.items():
+    percentage = (count / total) * 100
+    print(f'{level}: {count} ({percentage:.2f}%)')
+
+
+# Create a frequency distribution table for System Navigation Statement 3
+frequency_table = Counter(df['System Navigation Statement 3'])
+
+total = len(df['System Navigation Statement 3'])
+
+# Print the frequency distribution table with percentages
+for level, count in frequency_table.items():
+    percentage = (count / total) * 100
+    print(f'{level}: {count} ({percentage:.2f}%)')
+
+
+# Create a frequency distribution table for System Navigation Statement 4
+frequency_table = Counter(df['System Navigation Statement 4'])
+
+total = len(df['System Navigation Statement 4'])
+
+# Print the frequency distribution table with percentages
+for level, count in frequency_table.items():
+    percentage = (count / total) * 100
+    print(f'{level}: {count} ({percentage:.2f}%)')
+
+# Create a frequency distribution table for System Presentation Statement 1
+frequency_table = Counter(df['System Presentation Statement 1'])
+
+total = len(df['System Presentation Statement 1'])
+
+# Print the frequency distribution table with percentages
+for level, count in frequency_table.items():
+    percentage = (count / total) * 100
+    print(f'{level}: {count} ({percentage:.2f}%)')
+
+
+# Create a frequency distribution table for System Presentation Statement 2
+frequency_table = Counter(df['System Presentation Statement 2'])
+
+total = len(df['System Presentation Statement 2'])
+
+# Print the frequency distribution table with percentages
+for level, count in frequency_table.items():
+    percentage = (count / total) * 100
+    print(f'{level}: {count} ({percentage:.2f}%)')
+
+
+# Create a frequency distribution table for System Presentation Statement 3
+frequency_table = Counter(df['System Presentation Statement 3'])
+
+total = len(df['System Presentation Statement 3'])
+
+# Print the frequency distribution table with percentages
+for level, count in frequency_table.items():
+    percentage = (count / total) * 100
+    print(f'{level}: {count} ({percentage:.2f}%)')
+
+
+# Create a frequency distribution table for System Presentation Statement 4
+frequency_table = Counter(df['System Presentation Statement 4'])
+
+total = len(df['System Presentation Statement 4'])
+
+# Print the frequency distribution table with percentages
+for level, count in frequency_table.items():
+    percentage = (count / total) * 100
+    print(f'{level}: {count} ({percentage:.2f}%)')
+
+
+# Create a frequency distribution table for Security Statement 1
+frequency_table = Counter(df['Security Statement 1'])
+
+total = len(df['Security Statement 1'])
+
+# Print the frequency distribution table with percentages
+for level, count in frequency_table.items():
+    percentage = (count / total) * 100
+    print(f'{level}: {count} ({percentage:.2f}%)')
+
+
+# Create a frequency distribution table for Security Statement 2
+frequency_table = Counter(df['Security Statement 2'])
+
+total = len(df['Security Statement 2'])
+
+# Print the frequency distribution table with percentages
+for level, count in frequency_table.items():
+    percentage = (count / total) * 100
+    print(f'{level}: {count} ({percentage:.2f}%)')
+
+
+# Create a frequency distribution table for Security Statement 3
+frequency_table = Counter(df['Security Statement 3'])
+
+total = len(df['Security Statement 3'])
+
+# Print the frequency distribution table with percentages
+for level, count in frequency_table.items():
+    percentage = (count / total) * 100
+    print(f'{level}: {count} ({percentage:.2f}%)')
+
+
+# Create a frequency distribution table for Security Statement 4
+frequency_table = Counter(df['Security Statement 4'])
+
+total = len(df['Security Statement 4'])
+
+# Print the frequency distribution table with percentages
+for level, count in frequency_table.items():
+    percentage = (count / total) * 100
+    print(f'{level}: {count} ({percentage:.2f}%)')
+
+
+# Create a frequency distribution table for User Knowledge Statement 1
+frequency_table = Counter(df['User Knowledge Statement 1'])
+
+total = len(df['User Knowledge Statement 1'])
+
+# Print the frequency distribution table with percentages
+for level, count in frequency_table.items():
+    percentage = (count / total) * 100
+    print(f'{level}: {count} ({percentage:.2f}%)')
+
+
+# Create a frequency distribution table for User Knowledge Statement 2
+frequency_table = Counter(df['User Knowledge Statement 2'])
+
+total = len(df['User Knowledge Statement 2'])
+
+# Print the frequency distribution table with percentages
+for level, count in frequency_table.items():
+    percentage = (count / total) * 100
+    print(f'{level}: {count} ({percentage:.2f}%)')
+
+
+# Create a frequency distribution table for User Knowledge Statement 3
+frequency_table = Counter(df['User Knowledge Statement 3'])
+
+total = len(df['User Knowledge Statement 3'])
+
+# Print the frequency distribution table with percentages
+for level, count in frequency_table.items():
+    percentage = (count / total) * 100
+    print(f'{level}: {count} ({percentage:.2f}%)')
+
+
+# Create a frequency distribution table for User Knowledge Statement 4
+frequency_table = Counter(df['User Knowledge Statement 4'])
+
+total = len(df['User Knowledge Statement 4'])
+
+# Print the frequency distribution table with percentages
+for level, count in frequency_table.items():
+    percentage = (count / total) * 100
+    print(f'{level}: {count} ({percentage:.2f}%)')
+
+
+# Create a frequency distribution table for Academic Service Delivery
+frequency_table = Counter(df['Academic Service Delivery '])
+
+total = len(df['Academic Service Delivery '])
+
+# Print the frequency distribution table with percentages
+for level, count in frequency_table.items():
+    percentage = (count / total) * 100
+    print(f'{level}: {count} ({percentage:.2f}%)') 
