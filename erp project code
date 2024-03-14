@@ -299,3 +299,67 @@ plt.figure(figsize=(10, 8))  # You can adjust the figure size as needed
 sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', linewidths=0.5)
 plt.title('Correlation Heatmap')
 plt.show()
+
+# Define the threshold
+threshold = 5
+
+# Transform the dependent variable into 'Low' and 'High'
+df['Academic Service Delivery '] = df['Academic Service Delivery '].apply(lambda x: 'Low' if x < threshold else 'High')
+
+# Split the data into independent (X) and dependent (y) variables
+X = df[['System Navigation Satisfaction','System Presentation Satisfaction', 'Security Satisfaction','User Knowledge Satisfaction']]
+y = df['Academic Service Delivery ']
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+
+from sklearn.preprocessing import StandardScaler
+
+# Create a StandardScaler object
+scaler = StandardScaler()
+
+# Fit the scaler to your training data and transform it
+X_train_scaled = scaler.fit_transform(X_train)
+
+# Transform your test data using the same scaler
+X_test_scaled = scaler.transform(X_test)
+
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import classification_report, accuracy_score
+
+# Create and fit the Logistic Regression model
+model = LogisticRegression()
+model.fit(X_train[['System Navigation Satisfaction']], y_train)
+# Make predictions
+y_pred = model.predict(X_test[['System Navigation Satisfaction']])
+
+# Evaluate the model
+accuracy = accuracy_score(y_test, y_pred)
+report = classification_report(y_test, y_pred,zero_division=1)
+
+print("Accuracy:", accuracy)
+print("Classification Report:\n", report)
+
+
+from sklearn.metrics import confusion_matrix, precision_recall_fscore_support, roc_auc_score
+
+# Make predictions with the best model
+y_pred =model.predict(X_test[['System Navigation Satisfaction']])
+
+# Compute the confusion matrix
+conf_matrix = confusion_matrix(y_test, y_pred)
+
+# Compute precision, recall, F1-score, and support for each class
+precision, recall, f1_score, support = precision_recall_fscore_support(y_test, y_pred,zero_division=1)
+
+# Compute the ROC AUC score (only for binary classification)
+roc_auc = roc_auc_score(y_test,model.predict_proba(X_test[['System Navigation Satisfaction']])[:,1])
+
+# Print the metrics
+print("Confusion Matrix:\n", conf_matrix)
+print("Precision:", precision)
+print("Recall:", recall)
+print("F1 Score:", f1_score)
+print("Support:", support)
+print("ROC AUC Score:", roc_auc)
